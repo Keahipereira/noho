@@ -1,0 +1,516 @@
+/* ===========================
+   Noho'ola Kupa'a — Global Styles
+   =========================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green-dark:   #1E4D35;
+  --green-mid:    #2D6A4F;
+  --green-light:  #52B788;
+  --green-pale:   #EAF4EE;
+  --gold:         #C9973A;
+  --gold-light:   #F5E6C8;
+  --cream:        #FAF7F2;
+  --text:         #1C1C1C;
+  --text-muted:   #5A5A5A;
+  --white:        #FFFFFF;
+  --shadow:       0 2px 16px rgba(0,0,0,.10);
+  --radius:       8px;
+  --nav-h:        68px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Georgia', serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--cream);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--green-mid); text-decoration: none; }
+a:hover { color: var(--green-dark); }
+
+/* ── Typography ── */
+h1, h2, h3, h4 {
+  font-family: 'Georgia', serif;
+  line-height: 1.25;
+  color: var(--green-dark);
+}
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: .5em; }
+h3 { font-size: 1.3rem; margin-bottom: .4em; }
+p  { margin-bottom: 1em; color: var(--text-muted); }
+p:last-child { margin-bottom: 0; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-block;
+  padding: .75em 2em;
+  border-radius: var(--radius);
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all .2s;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+.btn-primary:hover {
+  background: #b0822e;
+  border-color: #b0822e;
+  color: var(--white);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--green-dark);
+}
+.btn-green {
+  background: var(--green-mid);
+  color: var(--white);
+  border-color: var(--green-mid);
+}
+.btn-green:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: var(--white);
+}
+
+/* ── Navigation ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--green-dark);
+  height: var(--nav-h);
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  line-height: 1.1;
+}
+.nav-logo .logo-main {
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--white);
+}
+.nav-logo .logo-sub {
+  font-size: .75rem;
+  color: var(--gold);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: .25rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+nav ul a {
+  color: rgba(255,255,255,.85);
+  font-size: .88rem;
+  font-family: system-ui, sans-serif;
+  padding: .45em .75em;
+  border-radius: 4px;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+nav ul a:hover, nav ul a.active {
+  background: rgba(255,255,255,.12);
+  color: var(--white);
+}
+nav ul .nav-donate a {
+  background: var(--gold);
+  color: var(--white);
+  font-weight: bold;
+  padding: .45em 1.1em;
+}
+nav ul .nav-donate a:hover {
+  background: #b0822e;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all .2s;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--green-dark);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: .45;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: var(--white);
+}
+.hero-content h1 { color: var(--white); margin-bottom: .5em; }
+.hero-content p { color: rgba(255,255,255,.88); font-size: 1.15rem; max-width: 640px; margin-bottom: 1.5em; }
+.hero-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  font-family: system-ui, sans-serif;
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .3em .9em;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* ── Page Hero (interior) ── */
+.page-hero {
+  background: var(--green-dark);
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+}
+.page-hero h1 { color: var(--white); }
+.page-hero p { color: rgba(255,255,255,.8); max-width: 600px; margin: .75rem auto 0; font-size: 1.1rem; }
+
+/* ── Sections ── */
+.section { padding: 4rem 1.5rem; }
+.section-alt { background: var(--green-pale); }
+.section-dark { background: var(--green-dark); }
+.section-gold { background: var(--gold-light); }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-family: system-ui, sans-serif;
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .5rem;
+}
+
+/* ── Two-col layout ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.two-col.reverse { direction: rtl; }
+.two-col.reverse > * { direction: ltr; }
+
+/* ── Card Grid ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--green-light);
+}
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: .75rem;
+}
+.card h3 { color: var(--green-dark); margin-bottom: .5rem; }
+.card p { font-size: .95rem; }
+
+/* ── Mission quote ── */
+.mission-quote {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 3rem 2rem;
+  border-radius: var(--radius);
+  position: relative;
+}
+.mission-quote::before {
+  content: '\201C';
+  font-size: 6rem;
+  color: var(--gold);
+  opacity: .4;
+  position: absolute;
+  top: -.5rem;
+  left: 1rem;
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.mission-quote p {
+  color: rgba(255,255,255,.9);
+  font-size: 1.1rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Testimonial ── */
+.testimonial {
+  background: var(--white);
+  border-left: 5px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 2rem 2rem 2rem 2.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+.testimonial p { font-style: italic; font-size: 1.05rem; color: var(--text); }
+.testimonial cite {
+  display: block;
+  margin-top: .75rem;
+  font-style: normal;
+  font-size: .9rem;
+  font-family: system-ui, sans-serif;
+  color: var(--green-mid);
+  font-weight: bold;
+}
+
+/* ── Impact list ── */
+.impact-list { list-style: none; margin: 1.5rem 0; }
+.impact-list li {
+  padding: .6rem 0 .6rem 2rem;
+  position: relative;
+  font-family: system-ui, sans-serif;
+  font-size: .97rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(0,0,0,.07);
+}
+.impact-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* ── Contact Info ── */
+.contact-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--green-pale);
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+.contact-item strong {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: .2rem;
+}
+.contact-item span, .contact-item a {
+  font-size: .97rem;
+  color: var(--text);
+}
+
+/* ── Form ── */
+.form-group { margin-bottom: 1.25rem; }
+label {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: .85rem;
+  font-weight: bold;
+  color: var(--green-dark);
+  margin-bottom: .35rem;
+  letter-spacing: .03em;
+}
+input, textarea, select {
+  width: 100%;
+  padding: .7em 1em;
+  border: 1.5px solid #C8D8C8;
+  border-radius: var(--radius);
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color .15s;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--green-light);
+}
+textarea { resize: vertical; min-height: 130px; }
+
+/* ── Map ── */
+.map-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-top: 1.5rem;
+}
+.map-wrap iframe { display: block; width: 100%; height: 320px; border: 0; }
+
+/* ── Donate tiers ── */
+.donate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.donate-tier {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--green-light);
+}
+.donate-tier.featured { border-top-color: var(--gold); }
+.donate-tier .amount {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--green-dark);
+  margin-bottom: .25rem;
+}
+.donate-tier p { font-size: .9rem; }
+
+/* ── Value pills ── */
+.values-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1.5rem 0;
+}
+.value-pill {
+  background: var(--green-pale);
+  border: 1.5px solid var(--green-light);
+  border-radius: 999px;
+  padding: .45em 1.25em;
+  font-family: system-ui, sans-serif;
+  font-size: .88rem;
+  color: var(--green-dark);
+  font-weight: bold;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--green-dark);
+  color: rgba(255,255,255,.75);
+  padding: 3rem 1.5rem 1.5rem;
+  font-family: system-ui, sans-serif;
+  font-size: .9rem;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2.5rem;
+}
+.footer-brand .logo-main { font-size: 1.1rem; color: var(--white); font-family: Georgia, serif; }
+.footer-brand .logo-sub  { font-size: .75rem; color: var(--gold); letter-spacing: .06em; text-transform: uppercase; }
+.footer-brand p { color: rgba(255,255,255,.6); margin-top: .75rem; font-size: .88rem; }
+.footer-col h4 {
+  font-family: Georgia, serif;
+  color: var(--white);
+  font-size: 1rem;
+  margin-bottom: .75rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: .4rem; }
+.footer-col ul a { color: rgba(255,255,255,.65); font-size: .88rem; transition: color .15s; }
+.footer-col ul a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .82rem;
+  color: rgba(255,255,255,.45);
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; }
+  .two-col.reverse { direction: ltr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 680px) {
+  .nav-toggle { display: flex; }
+  nav { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0;
+        background: var(--green-dark); padding: 1rem 1.5rem 1.5rem; }
+  nav.open { display: block; }
+  nav ul { flex-direction: column; align-items: flex-start; gap: .25rem; }
+  nav ul a { font-size: 1rem; display: block; padding: .5em .75em; width: 100%; }
+  nav ul .nav-donate { width: 100%; }
+  nav ul .nav-donate a { display: block; text-align: center; }
+  .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero { min-height: 380px; }
+}
