@@ -118,9 +118,22 @@
     });
   });
 
-  /* ── Standalone images (two-col, etc.) ── */
-  gsap.utils.toArray('.two-col img').forEach(function (img) {
-    // already handled by two-col animation above — no double animation
+  /* ── Standalone section images — subtle parallax ── */
+  gsap.utils.toArray('.section img, .section-alt img').forEach(function (img) {
+    if (img.closest('.photo-grid') || img.closest('.mgmt-grid') || img.closest('.nav-inner') || img.closest('.site-footer')) return;
+    gsap.fromTo(img,
+      { yPercent: -5 },
+      {
+        yPercent: 5,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: img,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5
+        }
+      }
+    );
   });
 
   /* ── Sticky CTA button ── */
