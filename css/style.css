@@ -494,6 +494,42 @@ textarea { resize: vertical; min-height: 130px; }
   gap: .5rem;
 }
 
+/* ── Card accent bar (replaces emoji icons) ── */
+.card-accent {
+  width: 36px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Contact icon dot ── */
+.contact-icon {
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: .75rem;
+}
+
+/* ── Sticky CTA ── */
+.sticky-cta {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 200;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+.sticky-cta .btn {
+  box-shadow: 0 6px 28px rgba(0,0,0,.28);
+  padding: .85em 2.2em;
+  font-size: .95rem;
+  letter-spacing: .01em;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .two-col { grid-template-columns: 1fr; }
