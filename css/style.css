@@ -494,6 +494,59 @@ textarea { resize: vertical; min-height: 130px; }
   gap: .5rem;
 }
 
+/* ── Nav logo image ── */
+.nav-logo img {
+  height: 46px;
+  width: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* ── Photo grid ── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: .75rem;
+  margin-top: 2rem;
+}
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* ── Management grid ── */
+.mgmt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.mgmt-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+}
+.mgmt-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.mgmt-photo:hover img { transform: scale(1.04); }
+
+/* ── Footer logo ── */
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  margin-bottom: .75rem;
+  border-radius: 4px;
+  display: block;
+}
+
 /* ── Card accent bar (replaces emoji icons) ── */
 .card-accent {
   width: 36px;

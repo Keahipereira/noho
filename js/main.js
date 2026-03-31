@@ -15,10 +15,10 @@
   var heroP    = document.querySelector('.hero-content > p, .page-hero p');
   var heroBtns = document.querySelectorAll('.hero-content .btn');
 
-  if (heroTag)        tl.from(heroTag,  { opacity: 0, y: 18, duration: 0.55 }, 0.1);
-  if (heroH1)         tl.from(heroH1,   { opacity: 0, y: 32, duration: 0.75 }, 0.25);
-  if (heroP)          tl.from(heroP,    { opacity: 0, y: 22, duration: 0.7  }, 0.45);
-  if (heroBtns.length) tl.from(heroBtns, { opacity: 0, y: 18, duration: 0.5, stagger: 0.13 }, 0.6);
+  if (heroTag)         tl.from(heroTag,   { opacity: 0, y: 18, duration: 0.55 }, 0.1);
+  if (heroH1)          tl.from(heroH1,    { opacity: 0, y: 32, duration: 0.75 }, 0.25);
+  if (heroP)           tl.from(heroP,     { opacity: 0, y: 22, duration: 0.7  }, 0.45);
+  if (heroBtns.length) tl.from(heroBtns,  { opacity: 0, y: 18, duration: 0.5, stagger: 0.13 }, 0.6);
 
   /* ── Section labels ── */
   gsap.utils.toArray('.section-label').forEach(function (el) {
@@ -101,6 +101,27 @@
       opacity: 0, y: 24, duration: 0.65, ease: 'power2.out'
     });
   }
+
+  /* ── Photo grid — staggered scale + fade ── */
+  gsap.utils.toArray('.photo-grid').forEach(function (grid) {
+    gsap.from(Array.from(grid.querySelectorAll('img')), {
+      scrollTrigger: { trigger: grid, start: 'top 82%' },
+      opacity: 0, scale: 0.94, duration: 0.65, stagger: 0.1, ease: 'power2.out'
+    });
+  });
+
+  /* ── Management grid — staggered fade up ── */
+  gsap.utils.toArray('.mgmt-photo').forEach(function (el, i) {
+    gsap.from(el, {
+      scrollTrigger: { trigger: el, start: 'top 88%' },
+      opacity: 0, y: 32, duration: 0.55, delay: (i % 4) * 0.1, ease: 'power2.out'
+    });
+  });
+
+  /* ── Standalone images (two-col, etc.) ── */
+  gsap.utils.toArray('.two-col img').forEach(function (img) {
+    // already handled by two-col animation above — no double animation
+  });
 
   /* ── Sticky CTA button ── */
   var stickyBtn = document.querySelector('.sticky-cta');
